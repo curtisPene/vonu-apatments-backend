@@ -5,11 +5,11 @@ const sendgridTransport = require("nodemailer-sendgrid-transport");
 const cors = require("cors");
 const app = express();
 const chalk = require("chalk");
-const port = process.env.PORT;
-const corsOrigin = process.env.CORS_ORIGIN;
-const sendGridApiKey = process.env.SEND_GRID_API_KEY;
+const PORT = process.env.PORT;
+const CORS_ORIGIN = process.env.CORS_ORIGIN;
+const SEND_GRID_API_KEY = process.env.SEND_GRID_API_KEY;
 // Middleware to parse JSON data
-app.use(cors({ origin: corsOrigin }));
+app.use(cors({ origin: CORS_ORIGIN }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 const transporter = nodemailer.createTransport(
   sendgridTransport({
     auth: {
-      api_key: sendGridApiKey,
+      api_key: SEND_GRID_API_KEY,
     },
   })
 );
@@ -80,6 +80,6 @@ app.post("/reservations", (req, res) => {
   );
 });
 
-app.listen(port || 8080, () => {
+app.listen(PORT || 8080, () => {
   console.log(`Server is running on port ${port}`);
 });
