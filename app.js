@@ -1,13 +1,15 @@
+require("dotenv").config();
 const express = require("express");
 const nodemailer = require("nodemailer");
 const sendgridTransport = require("nodemailer-sendgrid-transport");
 const cors = require("cors");
 const app = express();
 const chalk = require("chalk");
-const port = 8080;
-
+const port = process.env.PORT;
+const corsOrigin = process.env.CORS_ORIGIN;
+const sendGridApiKey = process.env.SEND_GRID_API_KEY;
 // Middleware to parse JSON data
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors({ origin: corsOrigin }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -15,14 +17,12 @@ app.use(express.urlencoded({ extended: true }));
 const transporter = nodemailer.createTransport(
   sendgridTransport({
     auth: {
-      api_key:
-        "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",
+      api_key: sendGridApiKey,
     },
   })
 );
 
 app.post("/reservations", (req, res) => {
-  console.log(req.body);
   const {
     guestName,
     email,
@@ -36,10 +36,9 @@ app.post("/reservations", (req, res) => {
   } = req.body;
 
   console.log(req.body);
-  res.status(400).send("Reservation request successful");
   transporter.sendMail(
     {
-      to: ["curtispene92@gmail.com", "vonuapartments@gmail.com"],
+      to: ["curtispene92@gmail.com"],
       from: "huluwainvestments@gmail.com",
       subject: "New Reservation Request",
       html: `" <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
