@@ -38,7 +38,7 @@ app.post("/reservations", (req, res) => {
   console.log(req.body);
   transporter.sendMail(
     {
-      to: ["curtispene92@gmail.com"],
+      to: ["huluwainvestments@gmail.com"],
       from: "huluwainvestments@gmail.com",
       subject: "New Reservation Request",
       html: `" <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
