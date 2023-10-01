@@ -80,6 +80,6 @@ app.post("/reservations", (req, res) => {
   );
 });
 
-app.listen(port, () => {
+app.listen(port || 8080, () => {
   console.log(`Server is running on port ${port}`);
 });
