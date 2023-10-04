@@ -42,7 +42,6 @@ app.post("/reservations", (req, res) => {
       from: "vonuapartments@gmail.com",
       subject: "New Reservation Request",
       html: `" <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
-        <h1>!!!Test Email!!!</h1>
         <h2>New Reservation Request for Vonu Apartments</h2>
         <p>Hello,</p>
         <p>A new reservation request has been made from your Vonu Apartments website. Here are the details:</p>
