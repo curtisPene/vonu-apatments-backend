@@ -59,8 +59,8 @@ app.post("/reservations", (req, res) => {
             <li><strong>Check-In Time:</strong> ${checkIn}</li>
             <li><strong>Check-Out Time:</strong> ${checkOut}</li>
             <li><strong>Apartment Selection:</strong> ${
-              aptOne ? "Apartment 1" : null
-            } ${aptTwo ? "Apartment 2" : null}</li>
+              aptOne ? "Apartment 1" : ""
+            } ${aptTwo ? "Apartment 2" : ""}</li>
             <li><strong>Number of Guests:</strong> ${numberOfGuests}</li>
             <li><strong>Purpose of Stay:</strong> ${purposeOfStay}</li>
         </ul>
