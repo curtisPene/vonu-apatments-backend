@@ -39,7 +39,7 @@ app.post("/reservations", (req, res) => {
   transporter.sendMail(
     {
       to: ["huluwainvestments@gmail.com"],
-      from: "huluwainvestments@gmail.com",
+      from: "vonuapartments@gmail.com",
       subject: "New Reservation Request",
       html: `" <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
         <h1>!!!Test Email!!!</h1>
